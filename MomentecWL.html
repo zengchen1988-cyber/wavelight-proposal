@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Momentec x Wavelight Strategic Proposal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Serious & Cool Brand Palette */
+        :root {
+            --bg-base: #09090b;       
+            --bg-surface: #18181b;    
+            --border-subtle: #27272a; 
+            --tech-yellow: #E5FF00;   
+            --tech-yellow-glow: rgba(229, 255, 0, 0.2);
+            --text-primary: #ffffff;
+            --text-secondary: #e4e4e7; 
+        }
+
+        body { 
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Roboto, Arial, sans-serif;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+        
+        ::selection { 
+            background-color: var(--tech-yellow); 
+            color: #000; 
+        }
+
+        .slide { 
+            display: none; 
+            animation: fadeSlideUp 0.6s cubic-bezier(0.16, 1, 0.3, 1); 
+            flex-direction: column;
+        }
+        .slide.active { 
+            display: flex; 
+        }
+
+        @keyframes fadeSlideUp { 
+            from { opacity: 0; transform: translateY(20px); } 
+            to { opacity: 1; transform: translateY(0); } 
+        }
+
+        /* 统一卡片样式：默认暗边框，悬浮亮黄 */
+        .m-card {
+            background-color: var(--bg-surface);
+            border: 2px solid var(--border-subtle); 
+            border-radius: 12px; 
+            transition: all 0.3s ease;
+        }
+
+        .m-card:hover {
+            border-color: var(--tech-yellow);
+            box-shadow: 0 8px 30px var(--tech-yellow-glow);
+            transform: translateY(-4px);
+        }
+
+        /* 极度粗壮的进度条 */
+        .progress-track {
+            background-color: var(--border-subtle);
+            height: 40px; 
+            width: 100%;
+            border-radius: 20px;
+            overflow: hidden;
+            display: flex;
+            position: relative; 
+        }
+        .progress-fill-yellow {
+            background-color: var(--tech-yellow);
+            height: 100%;
+            box-shadow: 0 0 20px var(--tech-yellow);
+            position: relative;
+        }
+        .progress-fill-yellow::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.5) 50%, rgba(255,255,255,0) 100%);
+            animation: shimmer 2s infinite;
+            transform: skewX(-15deg);
+        }
+        @keyframes shimmer {
+            100% { transform: translateX(100%) skewX(-15deg); }
+        }
+        
+        .progress-fill-gray {
+            background-color: #3f3f46;
+            height: 100%;
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col font-medium tracking-wide">
+
+    <div class="w-full flex justify-between items-center px-10 py-6 border-b-2 border-zinc-800 bg-zinc-950/90 backdrop-blur-md fixed top-0 z-20">
+        <div class="flex items-center gap-4 font-extrabold text-2xl tracking-widest text-zinc-100">
+            MOMENTEC <span style="color: var(--tech-yellow);">x</span> WAVELIGHT
+        </div>
+        <div class="text-zinc-400 text-lg font-mono tracking-widest font-bold" id="slide-indicator">
+            01 — 06
+        </div>
+    </div>
+
+    <div class="flex-grow flex items-center justify-center p-10 mt-24 mb-24 w-full max-w-7xl mx-auto">
+        
+        <div class="slide active w-full space-y-12" id="slide-1">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-4 h-4 rounded-full" style="background-color: var(--tech-yellow);"></div>
+                    <h3 class="text-zinc-200 tracking-widest text-base uppercase font-extrabold">Partnership Proposition</h3>
+                </div>
+                <h1 class="text-6xl md:text-7xl font-extrabold text-white leading-tight tracking-tight">
+                    Strategic Vision<br/>
+                    <span style="color: var(--tech-yellow);">The Engine for Asian Expansion</span>
+                </h1>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+                <div class="m-card p-10">
+                    <i data-lucide="target" class="mb-8" style="color: var(--tech-yellow); width: 40px; height: 40px; stroke-width: 2.5;"></i>
+                    <h3 class="text-3xl font-bold mb-6 text-white uppercase tracking-wide">The Opportunity & Hurdle</h3>
+                    <p class="text-zinc-200 text-xl font-semibold leading-relaxed">
+                        China's massive market requires a dedicated local partner. Momentec positions itself not just as a renter, but as the <span style="color: var(--tech-yellow); font-weight: 800;">Exclusive Brand Operator & General Sales Agent</span>.
+                    </p>
+                </div>
+
+                <div class="m-card p-10">
+                    <i data-lucide="handshake" class="mb-8" style="color: var(--tech-yellow); width: 40px; height: 40px; stroke-width: 2.5;"></i>
+                    <h3 class="text-3xl font-bold mb-6 text-white uppercase tracking-wide">The Win-Win Strategy</h3>
+                    <p class="text-zinc-200 text-xl font-semibold leading-relaxed">
+                        Reducing early hardware barriers allows Momentec to aggressively fund market education, guaranteeing Wavelight's <span style="color: var(--tech-yellow); font-weight: 800;">exponential growth over the next 3-5 years</span>.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide w-full space-y-12" id="slide-2">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-4 h-4 rounded-full" style="background-color: var(--tech-yellow);"></div>
+                    <h3 class="text-zinc-200 tracking-widest text-base uppercase font-extrabold">Strategic Roadmap</h3>
+                </div>
+                <h2 class="text-6xl md:text-7xl font-extrabold text-white leading-tight tracking-tight">
+                    Phase 1: Market Seeding<br/>
+                    <span class="text-zinc-400">& Validation</span>
+                </h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-10">
+                <div class="m-card p-10">
+                    <i data-lucide="map" class="mb-8" style="color: var(--tech-yellow); width: 40px; height: 40px; stroke-width: 2.5;"></i>
+                    <h3 class="text-3xl font-bold mb-6 text-white uppercase tracking-wide">National Rollout</h3>
+                    <ul class="space-y-6 text-zinc-200 text-xl font-semibold leading-relaxed">
+                        <li class="flex items-start gap-4">
+                            <span class="text-3xl leading-none mt-1" style="color: var(--tech-yellow);">▪</span> 
+                            <div>Launch offline experience events across major hub cities (Beijing, Shanghai).</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-3xl leading-none mt-1" style="color: var(--tech-yellow);">▪</span> 
+                            <div class="flex-1">Establish the <span class="whitespace-nowrap" style="color: var(--tech-yellow); font-weight: 900; font-size: 1.6rem;">"Serious & Cool"</span> brand image among early adopter runners.</div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="m-card p-10">
+                    <i data-lucide="crosshair" class="mb-8" style="color: var(--tech-yellow); width: 40px; height: 40px; stroke-width: 2.5;"></i>
+                    <h3 class="text-3xl font-bold mb-6 text-white uppercase tracking-wide">Targeted Feedback</h3>
+                    <ul class="space-y-6 text-zinc-200 text-xl font-semibold leading-relaxed">
+                        <li class="flex items-start gap-4">
+                            <span class="text-3xl leading-none mt-1" style="color: var(--tech-yellow);">▪</span> 
+                            <div>Assess commercial demand across daily consumers and elite runners.</div>
+                        </li>
+                        <li class="flex items-start gap-4">
+                            <span class="text-3xl leading-none mt-1" style="color: var(--tech-yellow);">▪</span> 
+                            <div>Gather data from commercial academies, sports universities, and government.</div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide w-full space-y-12" id="slide-3">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-4 h-4 rounded-full" style="background-color: var(--tech-yellow);"></div>
+                    <h3 class="text-zinc-200 tracking-widest text-base uppercase font-extrabold">2026 Financial Strategy</h3>
+                </div>
+                <h2 class="text-6xl font-extrabold text-white tracking-tight">Initial Capital Injection</h2>
+                <div class="text-6xl font-bold mt-4" style="color: var(--tech-yellow);">3,000,000 RMB</div>
+            </div>
+            
+            <div class="mt-16 mb-12">
+                <div class="flex justify-between text-5xl font-mono tracking-tighter font-black mb-8">
+                    <div style="color: var(--tech-yellow);">20% HARDWARE</div>
+                    <div class="text-zinc-400">80% PENETRATION</div>
+                </div>
+                <div class="progress-track">
+                    <div class="progress-fill-yellow" style="width: 20%;"></div>
+                    <div class="progress-fill-gray" style="width: 80%;"></div>
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                <div class="m-card p-10">
+                    <h4 class="text-3xl font-bold text-white mb-4 uppercase">Hardware & Access</h4>
+                    <p class="text-zinc-300 text-xl font-semibold leading-relaxed">System acquisition, rental fees, and import logistics to establish the foundation.</p>
+                </div>
+                <div class="m-card p-10">
+                    <h4 class="text-3xl font-bold text-white mb-4 uppercase">Services & Expansion</h4>
+                    <p class="text-zinc-300 text-xl font-semibold leading-relaxed mb-6">High-profile offline Kick-off events, PR content, and event production.</p>
+                    <p class="text-lg font-bold tracking-wide" style="color: var(--tech-yellow);">
+                        * Hardware is the foundation, but execution drives ROI.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide w-full space-y-12" id="slide-4">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-4 h-4 rounded-full" style="background-color: var(--tech-yellow);"></div>
+                    <h3 class="text-zinc-200 tracking-widest text-base uppercase font-extrabold">The Core Proposal</h3>
+                </div>
+                <h2 class="text-6xl font-extrabold text-white tracking-tight">Upgraded Partnership Framework</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 gap-8 max-w-5xl mt-10">
+                <div class="m-card p-10 flex items-center gap-8 group">
+                    <i data-lucide="clock" style="color: var(--tech-yellow); width: 40px; height: 40px; stroke-width: 2.5;"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-3 uppercase tracking-wide">Long-Term Alignment</h3>
+                        <p class="text-zinc-300 text-xl font-semibold">Extend contract term to <span style="color: var(--tech-yellow); font-weight: 900; font-size: 2rem;">3-5 YEARS</span> to secure market yields.</p>
+                    </div>
+                </div>
+
+                <div class="m-card p-10 flex items-center gap-8 group">
+                    <i data-lucide="percent" style="color: var(--tech-yellow); width: 40px; height: 40px; stroke-width: 2.5;"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-3 uppercase tracking-wide">Hardware Concessions</h3>
+                        <p class="text-zinc-300 text-xl font-semibold"><span style="color: var(--tech-yellow); font-weight: 900;">50% DISCOUNT</span> on agreement + <span style="color: var(--tech-yellow); font-weight: 900;">ONE RENTAL-FREE UNIT</span>.</p>
+                    </div>
+                </div>
+
+                <div class="m-card p-10 flex items-center gap-8 group">
+                    <i data-lucide="shield" style="color: var(--tech-yellow); width: 40px; height: 40px; stroke-width: 2.5;"></i>
+                    <div>
+                        <h3 class="text-2xl font-bold text-white mb-3 uppercase tracking-wide">Payment & Evolution</h3>
+                        <p class="text-zinc-300 text-xl font-semibold">Proposing a <span style="color: var(--tech-yellow); font-weight: 900; font-size: 2.5rem;">25% Downpayment</span>. Momentec assumes Sales roles.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide w-full space-y-12" id="slide-5">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-4 h-4 rounded-full" style="background-color: var(--tech-yellow);"></div>
+                    <h3 class="text-zinc-200 tracking-widest text-base uppercase font-extrabold">Future Commercialization</h3>
+                </div>
+                <h2 class="text-6xl md:text-7xl font-extrabold text-white tracking-tight">Phase 2: Core Revenue Streams</h2>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 mt-10">
+                <div class="m-card p-10 text-center">
+                    <div class="mb-8 pb-6 border-b-2 border-zinc-800">
+                        <span class="text-5xl font-black font-mono text-zinc-500">01</span>
+                        <h3 class="text-3xl font-bold text-white mt-6 uppercase">Training &<br/>Certification</h3>
+                    </div>
+                    <p class="text-zinc-200 text-xl font-semibold leading-relaxed">Generating operational cash flow through specialized Pacer Programs.</p>
+                </div>
+
+                <div class="m-card p-10 text-center">
+                    <div class="mb-8 pb-6 border-b-2 border-zinc-800">
+                        <span class="text-5xl font-black font-mono text-zinc-500">02</span>
+                        <h3 class="text-3xl font-bold text-white mt-6 uppercase">Racing IP &<br/>Tours</h3>
+                    </div>
+                    <p class="text-zinc-200 text-xl font-semibold leading-relaxed">Scaling brand presence via "Momentec x Wavelight" event tours.</p>
+                </div>
+
+                <div class="m-card p-10 text-center">
+                    <div class="mb-8 pb-6 border-b-2 border-zinc-800">
+                        <span class="text-5xl font-black font-mono text-zinc-500">03</span>
+                        <h3 class="text-3xl font-bold text-white mt-6 uppercase">Direct Sales &<br/>Service</h3>
+                    </div>
+                    <p class="text-zinc-200 text-xl font-semibold leading-relaxed">Capitalizing on the B2B market with direct sales to academies.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="slide w-full space-y-12" id="slide-6">
+            <div class="space-y-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-4 h-4 rounded-full" style="background-color: var(--tech-yellow);"></div>
+                    <h3 class="text-zinc-200 tracking-widest text-base uppercase font-extrabold">Final Assessment</h3>
+                </div>
+                <h2 class="text-6xl font-extrabold text-white tracking-tight">Risk Management & ROI</h2>
+            </div>
+            
+            <div class="m-card p-12 mt-8 border-2" style="border-color: var(--tech-yellow);">
+                <h3 class="text-3xl font-bold mb-6 flex items-center gap-4 text-white uppercase">
+                    <i data-lucide="trending-up" style="color: var(--tech-yellow); width: 40px; height: 40px; stroke-width: 3;"></i> 
+                    Investment Viability
+                </h3>
+                <p class="text-white text-2xl leading-relaxed font-bold">
+                    The initial <span style="color: var(--tech-yellow); font-size: 2.5rem;">3M RMB investment</span> builds an insurmountable competitive moat for 2027.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-10 mt-6">
+                <div class="m-card p-10">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase">Pricing Resistance</h4>
+                    <p class="text-zinc-300 text-lg font-semibold leading-relaxed">The rental discounts allow Momentec to safely test Chinese market pricing elasticity.</p>
+                </div>
+                <div class="m-card p-10">
+                    <h4 class="text-2xl font-bold text-white mb-4 uppercase">Piracy & Local Rivals</h4>
+                    <p class="text-zinc-300 text-lg font-semibold leading-relaxed">Early market capture establishes Wavelight as the premium "authentic" standard.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="w-full flex justify-between items-center px-12 py-8 border-t-2 border-zinc-900 bg-zinc-950 fixed bottom-0 z-20">
+        <button id="btn-prev" class="text-zinc-400 font-bold hover:text-white transition-colors disabled:opacity-20 flex items-center gap-3 text-lg uppercase tracking-widest">
+            <i data-lucide="arrow-left" class="w-6 h-6"></i> Prev
+        </button>
+        
+        <div class="flex gap-4" id="dots-container">
+        </div>
+
+        <button id="btn-next" class="text-zinc-400 font-bold hover:text-white transition-colors disabled:opacity-20 flex items-center gap-3 text-lg uppercase tracking-widest">
+            Next <i data-lucide="arrow-right" class="w-6 h-6"></i>
+        </button>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        let currentSlide = 1;
+        const totalSlides = 6; 
+        const btnPrev = document.getElementById('btn-prev');
+        const btnNext = document.getElementById('btn-next');
+        const slideIndicator = document.getElementById('slide-indicator');
+        const dotsContainer = document.getElementById('dots-container');
+
+        for (let i = 1; i <= totalSlides; i++) {
+            const dot = document.createElement('div');
+            dot.className = `h-2.5 rounded-full transition-all duration-500 ${i === currentSlide ? 'w-16 bg-yellow-400' : 'w-4 bg-zinc-700'}`;
+            dot.style.backgroundColor = i === currentSlide ? 'var(--tech-yellow)' : '';
+            dot.id = `dot-${i}`;
+            dotsContainer.appendChild(dot);
+        }
+
+        function updateView() {
+            for (let i = 1; i <= totalSlides; i++) {
+                const slide = document.getElementById(`slide-${i}`);
+                slide.classList.toggle('active', i === currentSlide);
+            }
+            slideIndicator.innerText = `0${currentSlide} — 0${totalSlides}`;
+            for (let i = 1; i <= totalSlides; i++) {
+                const dot = document.getElementById(`dot-${i}`);
+                dot.className = i === currentSlide ? 'h-2.5 rounded-full transition-all duration-500 w-16' : 'h-2.5 rounded-full transition-all duration-500 w-4 bg-zinc-700';
+                dot.style.backgroundColor = i === currentSlide ? 'var(--tech-yellow)' : '';
+            }
+            btnPrev.disabled = currentSlide === 1;
+            btnNext.disabled = currentSlide === totalSlides;
+        }
+
+        btnPrev.addEventListener('click', () => { if (currentSlide > 1) { currentSlide--; updateView(); } });
+        btnNext.addEventListener('click', () => { if (currentSlide < totalSlides) { currentSlide++; updateView(); } });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' && currentSlide < totalSlides) { currentSlide++; updateView(); } 
+            else if (e.key === 'ArrowLeft' && currentSlide > 1) { currentSlide--; updateView(); }
+        });
+        updateView();
+    </script>
+</body>
+</html>
